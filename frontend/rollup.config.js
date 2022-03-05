@@ -7,7 +7,7 @@ export default [
   // Uses Node Modules
   {
     input: [
-      'tsout/scripts/pls-map.js',
+      'INPUT_FILE',
     ],
     output: {
       dir: `_site/scripts`,
@@ -38,7 +38,7 @@ export default [
   // Doesn't use Node Modules
   {
     input: [
-      'tsout/scripts/slider.js',
+      'INPUT_FILE',
     ],
     output: {
       dir: `_site/scripts`,
