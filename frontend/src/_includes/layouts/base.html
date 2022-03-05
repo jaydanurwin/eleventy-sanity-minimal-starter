@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% inlinecss 'global.css' %}
+
+    <link rel="icon" href="/assets/favicon.svg" />
+    <!-- Primary Meta Tags -->
+    <title>{{ title or metadata.title }}</title>
+    <meta name="title" content="{{ title or metadata.title }}" />
+    <meta
+      name="description"
+      content="{{ description or metadata.description }}"
+    />
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap.xml" />
+    <!-- RSS -->
+    <!-- <link rel="alternate" type="application/rss+xml" title={`${site.name} Blog`} href={`${site.url}/feed/blog.xml`}/> -->
+
+    {% if canonical %}
+    <!-- Canonical -->
+    <link rel="canonical" href="{{ canonical }}" />
+    {% endif %}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ permalink }}" />
+    <meta property="og:title" content="{{ title or site.title }}" />
+    <meta
+      property="og:description"
+      content="{{ description or metadata.description }}"
+    />
+    <!-- <meta property="og:image" content={ogImageUrl ? `${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} /> -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+        rel="stylesheet"
+        type="text/css"
+      />
+    </noscript>
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <main>
+      {% block content %}
+        {{ content | safe }}
+      {% endblock %}
+    </main>
+  </body>
+</html>
